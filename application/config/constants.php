@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+defined('PROJECT') OR define('PROJECT', 'CI');
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

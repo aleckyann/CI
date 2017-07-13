@@ -7,15 +7,17 @@ class Site extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('site_model', 'site');
+		# DEPURAR PÁGINAS:
+		//$this->output->enable_profiler(TRUE);
+
 	}
 
 
 	public function index()
 	{
 		$data = array(
-			'title' => 'GetDoctors - Home Care, Atendimento médico domiciliar',
-			'description' => 'GetDoctors levará um médico para onde você quiser! Sem filas, sem burocracia, sem esperas. Esqueça o desconforto dos pronto-atendimentos, tenha atendimento médico no conforto de sua casa.',
+			'title' => 'Title',
+			'description' => 'Description',
 			'csrf_name' => $this->security->get_csrf_token_name(),
 			'csrf_hash' => $this->security->get_csrf_hash()
 		);
@@ -24,19 +26,19 @@ class Site extends CI_Controller {
 		$this->load->view('site/footer.php', $data);
 
 		if($this->session->flashdata('autenticar')){
-			$this->output->append_output('<script>setTimeout(function(){$("#modal_autenticar").iziModal("open")},1000)</script>');
+			$this->output->append_output('');
 		}
 		if($this->session->flashdata('newsletter')){
-			$this->output->append_output('<script>setTimeout(function(){$("#modal_newsletter").iziModal("open")},1000)</script>');
+			$this->output->append_output('');
 		}
 		if($this->session->flashdata('criar_conta')){
-			$this->output->append_output('<script>setTimeout(function(){$("#modal_criar_conta").iziModal("open")},1000)</script>');
+			$this->output->append_output('');
 		}
 		if($this->session->flashdata('recuperar_senha_paciente')){
-			$this->output->append_output('<script>setTimeout(function(){$("#modal_recuperar_senha_paciente").iziModal("open")},1000)</script>');
+			$this->output->append_output('');
 		}
 		if($this->session->flashdata('recuperar_senha_medico')){
-			$this->output->append_output('<script>setTimeout(function(){$("#modal_recuperar_senha_medico").iziModal("open")},1000)</script>');
+			$this->output->append_output('');
 		}
 	}
 
@@ -44,8 +46,10 @@ class Site extends CI_Controller {
 	public function termos_de_uso()
 	{
 		$data = array(
-			'title' => 'GetDoctors - Termos de uso para uso do GetDoctors.',
-			'description' => 'GetDoctors levará um médico para onde você quiser! Sem filas, sem burocracia, sem esperas. Esqueça o desconforto dos pronto-atendimentos, tenha atendimento médico no conforto de sua casa.',
+			'title' => 'Title',
+			'description' => 'Description',
+			'csrf_name' => $this->security->get_csrf_token_name(),
+			'csrf_hash' => $this->security->get_csrf_hash()
 		);
 		$this->load->view('site/termos-de-uso', $data);
 
@@ -55,8 +59,10 @@ class Site extends CI_Controller {
 	public function politica_de_privacidade()
 	{
 		$data = array(
-			'title' => 'GetDoctors - Home Care, Política de privacidade do GetDoctors',
-			'description' => 'GetDoctors levará um médico para onde você quiser! Sem filas, sem burocracia, sem esperas. Esqueça o desconforto dos pronto-atendimentos, tenha atendimento médico no conforto de sua casa.',
+			'title' => 'Title',
+			'description' => 'Description',
+			'csrf_name' => $this->security->get_csrf_token_name(),
+			'csrf_hash' => $this->security->get_csrf_hash()
 		);
 		$this->load->view('site/politica-de-privacidade', $data);
 

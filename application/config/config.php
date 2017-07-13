@@ -23,12 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$project = 'CI';
 
 if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1'){
-    $config['base_url'] = 'https://localhost/' . $project;
+    $config['base_url'] = 'https://localhost/' . PROJECT;
 } else {
-    $config['base_url'] = 'https://' . $project;
+    $config['base_url'] = 'https://' . PROJECT;
 }
 
 /*
@@ -229,7 +228,12 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+
+if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1'){
+    $config['log_threshold'] = 1;
+} else {
+    $config['log_threshold'] = 0;
+}
 
 /*
 |--------------------------------------------------------------------------
