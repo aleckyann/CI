@@ -6,8 +6,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 
-
-if($_SERVER['DOCUMENT_ROOT'] == '/var/www/html'){
+if($_SERVER['DOCUMENT_ROOT'] == '/var/www/html' || $_SERVER['DOCUMENT_ROOT'] == '/opt/lampp/htdocs' ){
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
