@@ -11,24 +11,12 @@ class Site_model extends CI_Model
         }
 
 
-        public function autenticar_paciente()
+        public function autenticar()
         {
             $email = $this->input->post('autenticar_email');
             $senha = hash('whirlpool', $this->input->post('autenticar_senha'));
 
             $query = $this->db->get_where('clientes', array(
-                'email'   => $email,
-                'senha' => $senha,
-            ));
-            return $query->result_array()[0];
-        }
-
-        public function autenticar_medico()
-        {
-            $email = $this->input->post('autenticar_email');
-            $senha = hash('whirlpool', $this->input->post('autenticar_senha'));
-
-            $query = $this->db->get_where('medicos', array(
                 'email'   => $email,
                 'senha' => $senha,
             ));
@@ -70,7 +58,7 @@ class Site_model extends CI_Model
         }
 
 
-        public function recuperar_senha_paciente($data)
+        public function recuperar_senha($data)
         {
             $this->db->select('recovery');
             $query = $this->db->get_where('clientes', $data);
@@ -81,14 +69,4 @@ class Site_model extends CI_Model
             }
         }
 
-        public function recuperar_senha_medico($data)
-        {
-            $this->db->select('recovery');
-            $query = $this->db->get_where('medicos', $data);
-            if($query->result_array()){
-                return implode($query->result_array('recovery')[0]);
-            } else {
-                return 'false';
-            }
-        }
 }
